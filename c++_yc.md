@@ -1436,7 +1436,7 @@ class c: public b, public c { } ;
 纯虚函数为子类提供一个统一接口，
 拥有纯虚函数的类成为抽象类，抽象类不能创建对象
 
-
+hi gitbut
 
 
 
