@@ -1305,7 +1305,7 @@ cout << numeric_limits<double>::lowest() << endl; //-1.79769e+308 能表示最�
 
 # 33 内存分配器< allocator >
 手动控制构造和析构的时机。
-
+todo
 
 # 34 类的四大默认函数
 ```cpp
