@@ -334,7 +334,7 @@ db.blog.find({'id':1})
 
 db.blog.findOne()
 
-db.blog.update({'id':2}),'$set':{'name':'YRF'})  //如果name不存在，则新增一条kv对。  $set是修改器，另外还有$unset, $inc
+db.blog.update({'id':2}),'$set':{'name':'YRF'})  //如果name不存在，则新增一条kv对。  $set是修改器，另外还有$unset, $inc。update还可以由第三、第四个参数 todo
 
 db.blog.remove({'id':3})
 
