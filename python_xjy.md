@@ -60,17 +60,99 @@ a.pop(1)
 a.extend((1,)) 
 a.extend((1,2))
 a.extend((1))  # err
-a.extend(1)  # err 
+a.extend(1)  # err
+a.extend([1]) # ok
 b = [1, 2, 3]
 c = b
 c.pop()  #b == [1, 2]
 d = b[:]
 d.pop()  #b == [1, 2]
+b *= 3
 
+``` 
+## 1.a tuple
+```python
+a = 1, 2, 3
+type(a)  # tuple
+b = (1)
+type(b)  # int
+c = 1,
+type(c)   # tuple
+
+```
+
+## 1.b 字符串格式化
+```python
+#位置参数
+s = '{0} love {1} {2}'.format('I', 'you', 'forever')
+#关键字参数
+s = '{a} love {b} {c}'.format(a = 'I', b = 'you', c = 'forever')
+#浮点格式
+'{0:.1f}{1}'.format(27.658, 'GB')   # 27.7GB
+```
+
+## 1.c 序列
+list(a) 要求a是一个可爹爹带对象
+tuple(a)
+
+```python
+s= 'i love you'
+s = list(s)
+s = tuple(s)
+a = '1234567890'
+print(min(a))
+print(max(s))
+sorted(a)
+reversed(a)
+enumerate(a)
+zip(a,s)
+```
+## 1.d 函数文档
+```python
+def test():
+	'test用来测试函数文档'
+	pass
+
+test.__doc__
+help(test)
+```
+
+## 1.e 关键字参数与默认参数
+关键字参数是在调用的时候使用形参指定哪个实参与之对应
+默认参数是在定义函数时。。。
+
+## 1.f global与全局变量
+在函数内部访问全局变量若需要修改，则必须用global声明一下，若不修改可直接使用
+```python
+g = 10
+def test():
+	g = 5
+	print(g)
+print(g)
+def test1():
+	global g
+	g = 5
+	print(g)
+print(g)
+```
+## 1.g 内部函数和闭包
+python函数可以嵌套，内部函数仅在函数内部可见
+与全局变量相似，内部函数若要对其上层变量进行修改也会被屏蔽，在python2中需要用一个容器间接修改，python3 中使用nonlocal 关键字可以实现修改
+闭包：如果在一个内部函数里对外层作用域的变量进行了引用，那么该内部函数就被认为时一个闭包
+```python
+def funx(x):
+	def funy(y):   # funy是一个闭包
+		nonlocal x
+		x += 1
+		return x * y
+	return funy
+i = funx(5)
+i(8)
+funx(5)(8)
 ```
 
 ## 1.xx 其他
-```python
+```python 
 print(1, 2, 3, 4, sep = '@', end = '$')
 range(1, 10, 3)
-```
+```    
