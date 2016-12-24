@@ -61,6 +61,11 @@ a.extend((1,))
 a.extend((1,2))
 a.extend((1))  # err
 a.extend(1)  # err 
+b = [1, 2, 3]
+c = b
+c.pop()  #b == [1, 2]
+d = b[:]
+d.pop()  #b == [1, 2]
 
 ```
 
