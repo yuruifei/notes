@@ -159,7 +159,7 @@ g(2,4)
 l = list(filter(lambda x : x % 2, range(10)))  
 l = list(map(lambda x : x * 2, range(10)))
 ```
-# 1.i 递归
+## 1.i 递归
 python3 默认最大递归层数为1000，可以设置最大递归层数
 ```python
 import sys
@@ -182,6 +182,40 @@ def hano_r(depth, x, y, z):
 def hano(depth):
 	hano_r(depth, x, y, z)
 ```
+
+## 1.j 字典
+```python
+d.get(i)
+d[i]
+d.fromkeys()  # dict.fromkeys(seq,val=None)
+a = {1:'one', 2:'two', 3:'three'}
+a.pop(2)
+a.popitem() # 随机弹出
+a.setdefualt('小白')  # 小白是key
+```
+## 1.k集合
+```python
+a = {1, 3, 4, 5, 6}
+b = set([1, 3, 4])
+c = frozonset([1,2,3])  #不可变集合
+```
+
+## 1.l 深拷贝，浅拷贝，赋值
+```python
+a = [1, 2, 3, 4]
+b = a.copy()
+c = a
+id(a)
+id(b)
+id(c)
+```
+
+## 1.m 文件
+r w a b
+x
+t
+\+
+U
 
 ## 1.xx 其他
 ```python 
