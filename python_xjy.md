@@ -150,6 +150,38 @@ i = funx(5)
 i(8)
 funx(5)(8)
 ```
+## 1.h lambda
+lambda使代码更加精简，不用考虑命名问题，简化代码可读性
+```python
+g = lambda x, y : x + y
+g(2,4)
+# 在filter中使用
+l = list(filter(lambda x : x % 2, range(10)))  
+l = list(map(lambda x : x * 2, range(10)))
+```
+# 1.i 递归
+python3 默认最大递归层数为1000，可以设置最大递归层数
+```python
+import sys
+sys.setrecursionlimit(100000) 
+```
+汉诺塔问题
+```python
+#首先要定义函数，首先想到的是使用一个参数，来表示汉诺塔的层数
+def hano0(depth):
+	pass
+但是这样无法递归，若要使用递归，必须增加一些参数，所有的递归问题都是如此。我们需要将柱子信息引入，盘子原来放在x柱子，目的地是y柱子
+def hano_r0(depth, x, y):
+	pass
+这样依然无法写出递归函数，我们必须再增加一些参数，即中间柱子z，这样就可以了
+def hano_r(depth, x, y, z):  
+	hano_r(depth - 1, x, z, y)
+	print('x --> y')
+	hano_r(depth - 1, z, x, y)
+	
+def hano(depth):
+	hano_r(depth, x, y, z)
+```
 
 ## 1.xx 其他
 ```python 
