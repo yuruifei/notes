@@ -211,11 +211,44 @@ id(c)
 ```
 
 ## 1.m 文件
-r w a b
-x
-t
-\+
+打开方式
+```python
+r w a b x t + U
+r w a x  #x:create if not exist
+b t
 U
+```
+## 1.n 异常处理
+
+```python
+
+```
+
+## 1.o else
+else可以配合if，while，for，try等语句
+
+else和while，for配合时，如果正常退出循环，则执行else中的语句，如果break退出循环则不执行else中的语句
+```python
+def showMaxFactor(num):
+	count = num // 2
+	while count > 1 :
+		if num % count == 0:
+			print('%d的最大因子是%d' % (num, count))
+			break
+		count -= 1
+	else:
+		print(%d是一个素数‘ % num)	
+```
+```python
+
+try:
+	int('abc')
+except ValueError as reason:
+	print('出错啦', + str(reason))
+else:
+	print('没有任何异常）
+
+···
 
 ## 1.xx 其他
 ```python 
