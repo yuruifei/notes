@@ -239,6 +239,7 @@ def showMaxFactor(num):
 	else:
 		print(%d是一个素数‘ % num)	
 ```
+用于try也差不多
 ```python
 
 try:
