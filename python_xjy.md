@@ -249,7 +249,50 @@ except ValueError as reason:
 else:
 	print('没有任何异常）
 
-···
+```
+
+## 1.p 类的魔法方法
+带有双下滑线的方法
+1__init__(self[, ...]) 构造函数
+2__new__(cls[, ...]) 对象实例化时被调用的第一个方法
+```python
+class CapStr(str):     # 由于str类无法修改，所以需要在__new__方法中将其大写
+	def __new__(cls, string):
+		string = string.upper()
+		return str.__new(cls, string)
+```
+3__del__(self) 析构函数，GC在收回内存时才会调用此方法
+4__add__  __sub__等
+
+
+## 1.q 私有属性
+python的私有时伪私有课通过对象._类__属性 访问
+```python
+class A:
+	__name = 'aha'	
+a = A()
+a.name
+a.__name
+a._A__name
+```
+
+## 1.r property方法
+```python
+class C:
+	def __init__(self, size = 10):
+		self.size = size
+	def getSize(self):
+		return self.size
+	def setSize(self, value):
+		self.size = value
+	def delSize(self):
+		del self.size
+	x = property(getSize, setSize, delSize)
+c1 = C()
+c1.x
+c1.x = 19
+del c1.x
+```
 
 ## 1.xx 其他
 ```python 
