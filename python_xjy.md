@@ -354,7 +354,29 @@ class MyProperty:
 		self.fget = fget
 		self.fset = fset
 		self.fdel = fdel
-	
+	def __get__(self, instance, owner):
+		return self.fget(instance)
+	def __set__(self,instance, value):
+		self.fset(instance, value)
+	self.__selete__(self, instance):
+		self.fdel(instance)
+		
+class C:
+	def __inti__(self):
+		self._x = None
+	def setx(self, x):
+		self._x = x
+	def getx(self):
+		return self._x
+	def delx(self):
+		del self._x
+	x = MyProperty(getx, setx, delx)
+
+c = C()
+c.x = 1
+c.x
+
+
 ```
 
 ## 1.xx 其他
