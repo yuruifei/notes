@@ -375,7 +375,64 @@ class C:
 c = C()
 c.x = 1
 c.x
+```
 
+## 1.t 定制容器
+定制不可变容器要定义```__len__()  __getitem__()```方法，如果希望定制可变容器
+还需要定义```__setitem__()  __delitem()__```方法
+```python
+
+```
+## 1.u 迭代器
+一个迭代器要实现```__iter__()  __next__()``` 
+```python
+class Fibs:
+	def __init__(self, n = 10):
+		self.a = 0
+		self.b = 1
+		self.n = n
+	def __iter__(self):
+		return self
+	def __next__(self):
+		self.a, self.b = self.b, self.a + self.b
+		if self.a > self.n:
+			raise StopIteration
+		else:
+			return a
+
+fbs = Fibs()
+for each in fbs:
+	print(each)
+	
+```
+## 1.v 生成器
+协同程序就是可以运行的独立函数调用，函数可以暂停或挂起，并在需要的时候从程序离开的继续执行或者重新开始
+```python
+def myGen():
+	print("生成器被执行")
+	yield 1
+	yield 2
+	
+myG = myGen()
+next(myG)
+next(myG)
+
+for i in myGen():
+	print(i)
+
+
+def fibs():
+	a = 0
+	b = 0
+	while True:
+		a, b = b, a+b
+		yield a
+		
+for i in fibs():
+	if i > 100:
+		break
+	print(i, end=' ')
+	
 
 ```
 
