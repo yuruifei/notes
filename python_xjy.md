@@ -263,6 +263,38 @@ class CapStr(str):     # 由于str类无法修改，所以需要在__new__方法
 ```
 3__del__(self) 析构函数，GC在收回内存时才会调用此方法
 4__add__  __sub__等
+```python
+class int(int):
+	def __add__(self, other):
+		return int.__sub__(self, other)
+		
+a = int('5')
+b = int(3)
+a + b
+# 2
+```
+5__radd__
+
+```python
+class Nint(int):
+	def __radd__(self, other):
+		return int.__sub__(self, other)
+		
+a = Nint(5)
+b = Nint(3)
+a + b   # 8
+1 + b  # 2 当对象的类没有定义__add__时，要调用后面对象的__radd__的方法
+class Nint(int):
+	def __sub__(self, other):
+		return int.__sub__(self, other)  #应该为(other, self)
+a = Nint(5)
+3 - 5 # 2
+```
+6__iadd__   +=
+7__getattr__(self, name) 定义当用户试图获取一个不存在的属性时的行为。```__getattribute__(self, name)```定义一个属性被访问时的行为。```__setattr__(self,name),  __delattr__(self, name)```定义属性被设置和删除时的行为
+要注意getattr和setattr可能和init产生死循环
+```python
+```
 
 
 ## 1.q 私有属性
@@ -292,6 +324,37 @@ c1 = C()
 c1.x
 c1.x = 19
 del c1.x
+```
+## 1.s 描述符
+将某种特殊类型的类的实例指派给另一个类的属性
+property就是一个描述符类
+```python
+class MyDescriptor:
+	def __get__(self, intance, owner):
+		print("getting...", self, instance, owner)
+		
+	def __set__(self, instance, value):
+		print("setting...", self, instance, value)
+		
+	def __delete__(self, instance):
+		print("deleting...", self, instance)
+
+class Test:
+	x = MyDecriptor()
+	
+test = Test()
+test.x
+test
+Test
+test.x = "x-man"
+del test.x
+
+class MyProperty:
+	def __init__(self, fget=None, fset=None, fdel=None):
+		self.fget = fget
+		self.fset = fset
+		self.fdel = fdel
+	
 ```
 
 ## 1.xx 其他
