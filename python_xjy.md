@@ -436,6 +436,16 @@ for i in fibs():
 
 ```
 
+## 1.w 如何快速学习一个模块
+IDLE -> help  查看文档，文档中往往有例子，但是会很长
+```print(module.__doc__)```可以查看一个更加简洁的文档
+```module.__all__``` 查看模块内所有的类
+```module.__file__```源码位置
+help(module) 一个稍微复杂的文档
+
+## 1.x 正则表达式
+
+
 ## 1.xx 其他
 ```python 
 print(1, 2, 3, 4, sep = '@', end = '$')
