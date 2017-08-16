@@ -1,6 +1,6 @@
 ---
-title: js_css_html 
-tags: 新建,模板,小书匠
+title: js_css_html
+tags: js,css,html,note
 grammar_cjkRuby: true
 ---
 # 01 杂项
